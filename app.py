@@ -38,3 +38,4 @@ if submit:
         # À faire : appel aux APIs
     else:
         st.error("Veuillez remplir les deux adresses.")
+
