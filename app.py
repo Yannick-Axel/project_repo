@@ -4,10 +4,9 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-st.set_page_config(page_title='Titanic !!!' , page_icon="📊", layout="wide")
-st.set_option('deprecation.showPyplotGlobalUse', False)
+st.set_page_config(page_title='Titanic !!!', page_icon="📊", layout="wide")
 
-st.title ("Car Carbon Emission Calculator")
+st.title("Car Carbon Emission Calculator")
 st.markdown("""
     <style>
     div.block-container {
@@ -16,7 +15,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Formulaire utilisateur
 st.subheader("Entrez les informations de votre trajet")
 
 with st.form("carbon_form"):
@@ -35,7 +33,6 @@ with st.form("carbon_form"):
 if submit:
     if origin and destination:
         st.success(f"Calcul en cours pour un trajet de **{origin}** à **{destination}** avec un véhicule **{vehicle_type}**...")
-        # À faire : appel aux APIs
     else:
         st.error("Veuillez remplir les deux adresses.")
 
