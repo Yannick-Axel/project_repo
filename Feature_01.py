@@ -78,4 +78,4 @@ if submit:
         # Ici tu ajouteras l'appel à Google Maps API pour la distance
         # Puis l'appel à Carbon Interface API pour les émissions CO₂
     else:
-        st.error("Veuillez remplir les deux adresses.")
+        st.error("Veuillez remplir les deux adresses.") 
