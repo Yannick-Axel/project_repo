@@ -36,3 +36,12 @@ if submit:
     else:
         st.error("Veuillez remplir les deux adresses.")
 
+emission_factor = (
+    "Switzerland":(
+        " voiture à essence" :0,22
+        "voiture diesel" : 0,20
+        "voiture hybride" : 0,14
+        "voiture éléctrique" : 0,1
+    )
+)
+st.set_page_config(layout="wide")
