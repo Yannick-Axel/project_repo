@@ -36,12 +36,26 @@ if submit:
     else:
         st.error("Veuillez remplir les deux adresses.")
 
-emission_factor = (
-    "Switzerland":(
-        " voiture à essence" :0,22
-        "voiture diesel" : 0,20
-        "voiture hybride" : 0,14
-        "voiture éléctrique" : 0,1
-    )
-)
-st.set_page_config(layout="wide")
+emission_factor = {
+    "Switzerland": {
+        "voiture essence": 0.22,
+        "voiture diesel": 0.20,
+        "voiture hybride": 0.14,
+        "voiture électrique": 0.10
+    }
+}
+
+col1, col2, col3, col4 = st.columns(4)
+
+
+with col1:
+    distance_essence = st.slider("Distance (Essence)", 0.0, 100.0, key="distance_essence")
+with col2:
+    distance_diesel = st.slider("Distance (Diesel)", 0.0, 100.0, key="distance_diesel")
+with col3:
+    distance_hybrid = st.slider("Distance (Hybride)", 0.0, 100.0, key="distance_hybrid")
+with col4:
+    distance_electric = st.slider("Distance (Électrique)", 0.0, 100.0, key="distance_electric")
+
+if distance_essence > 0:
+    annual_essence = distance_essence * 365
