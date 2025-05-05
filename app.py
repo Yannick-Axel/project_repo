@@ -4,7 +4,6 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-# --- Streamlit page config ---
 st.set_page_config(page_title='Car Carbon Emission Calculator 🚗', page_icon="📊", layout="wide")
 
 st.title("Car Carbon Emission Calculator")
@@ -26,8 +25,8 @@ emission_factor = {
     "voiture électrique": 0.10
 }
 
-# --- ORS Client ---
-ORS_API_KEY = "YOUR_ORS_API_KEY_HERE"  # Replace with your ORS API Key
+# --- ORS API key from Streamlit secrets ---
+ORS_API_KEY = st.secrets["api_keys"]["ors"]
 client = openrouteservice.Client(key=ORS_API_KEY)
 
 # --- User Form ---
@@ -66,7 +65,6 @@ if submit:
             st.error(f"Erreur lors de la récupération de la distance : {e}")
             distance_km = fallback_distance
             st.info(f"Utilisation de la distance estimée : **{distance_km:.2f} km**")
-
     else:
         st.warning("Adresses manquantes. Utilisation de la distance journalière estimée.")
         distance_km = fallback_distance
@@ -79,5 +77,5 @@ if submit:
     st.write(f"- 🚘 Type de véhicule : **{vehicle_type}**")
     st.write(f"- 📅 Distance annuelle : **{annual_distance:.2f} km**")
     st.write(f"- ♻️ Émissions CO₂ estimées : **{annual_emissions:.2f} kg/an**")
-    
+
 
