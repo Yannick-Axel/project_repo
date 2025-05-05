@@ -79,4 +79,5 @@ if submit:
     st.write(f"- 🚘 Type de véhicule : **{vehicle_type}**")
     st.write(f"- 📅 Distance annuelle : **{annual_distance:.2f} km**")
     st.write(f"- ♻️ Émissions CO₂ estimées : **{annual_emissions:.2f} kg/an**")
+    
 
